@@ -1,0 +1,60 @@
+
+<div class="card shadow mb-4 margin">
+  <div class="card-header text-primary">
+    Saisie s'une séance de cours
+
+
+  </div>
+
+  <div class="card-body">
+    <select class='select-option btn btn-primary dropdown-toggle ms-3'
+            #matiereSelectionnee
+            (change)="changeMatiere(matiereSelectionnee.value)">
+      <option disabled selected>Matière</option>
+      <option class='option'
+              *ngFor="let matiere of liste_matieres"
+              [value]="matiere.nomMat"
+              >{{matiere.nomMat}}</option>
+    </select>
+
+
+    <select class='select-option btn btn-primary dropdown-toggle ms-3'
+            #horaireSelectionne
+            (change)="changeSeance(horaireSelectionne.value)"
+    >
+      <option disabled selected>Horaire</option>
+      <option class='option'
+              *ngFor="let horaire of horaires"
+              [value]="horaire.horaireOption">{{horaire.horaireOption}}</option>
+    </select>
+
+
+    <select class='select-option btn btn-primary dropdown-toggle ms-3'
+            #mySelect
+            (change)="changeGroupe(mySelect.value)">
+      <option disabled selected>Groupe</option>
+      <option class='option'
+              *ngFor="let groupe of liste_groupe"
+              [value]="groupe.nomGroupe">{{groupe.nomGroupe}}</option>
+    </select>
+
+
+    <div class="form-check form-check-inline  ms-3 mt-3 ">
+      <input #testCheckbox class="form-check-input" type="checkbox" id="testCheckbox" value="option1" (change)="changeTest(testCheckbox.checked)">
+      <label class="form-check-label" for="testCheckbox">Test d'évaluation effectué ?</label>
+    </div>
+
+    <div class="d-inline  ">
+      <mat-form-field class="ms-3">
+        <input matInput [matDatepicker]="picker" placeholder="Choisissez une date"  (dateInput)="changeDate('input', $event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary rounded-pill ms-3 d-flex float-end" (click)="addSeance()">Soumettre </button>
+    </div>
+
+</div>
+</div>
+

@@ -1,0 +1,11 @@
+<div class="card-body">
+  <select class='select-option btn btn-primary dropdown-toggle ms-3'
+          #optionSelectionnee
+          (change)="changeOption(optionSelectionnee.value)">
+
+
+    <option class='option' selected value="seance">Saisie s'une séance de cours</option>
+    <option class='option' value="absence">Saisie absence</option>
+
+  </select>
+</div>
